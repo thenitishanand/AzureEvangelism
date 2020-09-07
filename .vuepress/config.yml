@@ -2,13 +2,15 @@ title: Azure Developer College
 patterns: ['**/*.md']
 base: /trainingdays/
 themeConfig:
-    repo: 'azuredevcollege/trainingdays'
-    editLinks: true
-    sidebar: [
+  repo: 'azuredevcollege/trainingdays'
+  editLinks: true
+  sidebar:
+    [
       ['./', 'Home'],
       './day1/',
       './day2/',
       './day3/',
       './day4/',
-      './day5/'
+      './day5/',
+      './day6/',
     ]
