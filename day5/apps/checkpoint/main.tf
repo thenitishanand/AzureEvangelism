@@ -84,31 +84,6 @@ resource "azuredevops_variable_group" "day5_vars" {
     value = "${local.unique_prefix}-adcd5cosmos-restore"
   }
 }
-
-resource "azuredevops_variable_group" "dev_vars" {
-  project_id   = azuredevops_project.project.id
-  name         = "Day5-AAD-Dev"
-  description  = "Managed by Terraform"
-  allow_access = true
-
-  variable {
-    name  = "FOO"
-    value = "BAR"
-  }
-}
-
-resource "azuredevops_variable_group" "test_vars" {
-  project_id   = azuredevops_project.project.id
-  name         = "Day5-AAD-Test"
-  description  = "Managed by Terraform"
-  allow_access = true
-
-  variable {
-    name  = "FOO"
-    value = "BAR"
-  }
-}
-
 resource "azuredevops_build_definition" "common" {
   project_id = azuredevops_project.project.id
   name       = "SCM Common"
@@ -163,8 +138,6 @@ resource "azuredevops_build_definition" "api" {
 
   variable_groups = [
     azuredevops_variable_group.day5_vars.id,
-    azuredevops_variable_group.dev_vars.id,
-    azuredevops_variable_group.test_vars.id,
   ]
 
   depends_on = [
