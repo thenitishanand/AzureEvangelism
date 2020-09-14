@@ -35,6 +35,7 @@ jobs:
                   -sqlDatabaseName ${{ parameters.uniquePrefix }}${{ variables.sqlDatabaseName }} -sqlUserName $(sqlAdminUser) -sqlPassword $(sqlAdminPassword) 
                   -serviceBusNamespaceName ${{ parameters.uniquePrefix }}${{ variables.serviceBusNamespaceName }}
                   -aadInstance ${{ variables.AadInstance }}
+                  -aadClientId ${{ variables.AadClientId }}
             - task: AzureRmWebAppDeployment@4
               inputs:
                 azureSubscription: ${{ parameters.azureSubscription }}
